@@ -4,9 +4,9 @@ This Stopwatch App is a simple React application that allows users to measure el
 
 ## Features
 
-- **Start Button:** Begins the stopwatch timer.
-- **Stop Button:** Pauses the stopwatch timer.
-- **Reset Button:** Resets the stopwatch timer to zero.
+- **Multiple Stopwatches:** Users can add as many stopwatches as needed to measure multiple time intervals simultaneously.
+- **Start, Stop, and Reset Buttons:** Each stopwatch includes controls for starting, stopping, and resetting the timer          independently.
+- **Accurate Time Measurement:** The stopwatches accurately measure elapsed time with precision.
 
 ## How to Use
 
