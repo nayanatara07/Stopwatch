@@ -1,4 +1,4 @@
-import Stopwatch from "./assets/Stopwatch";
+import Stopwatch from "./Stopwatch";
 
 function App() {
 
