@@ -15,6 +15,9 @@ function Stopwatch(){
             }, 10);
         }
 
+        return () => {
+            clearInterval(intervalIdRef.current);
+        }
         
     }, [isRunning]);
 
