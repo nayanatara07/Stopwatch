@@ -2,6 +2,6 @@ import Stopwatch from "./assets/Stopwatch";
 
 function App() {
 
-  return (<>Stopwatch</>);
+  return (<Stopwatch/>);
 }
 export default App;
