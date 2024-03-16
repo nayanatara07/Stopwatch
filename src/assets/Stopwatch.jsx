@@ -18,7 +18,7 @@ function Stopwatch(){
 
         
     function stop() {
-        
+        setIsRunning(false);
     }
 
         
