@@ -43,7 +43,8 @@ function Stopwatch(){
         let seconds = Math.floor(elapsedTime / (1000) % 60);
         let milliseconds = Math.floor((elapsedTime % 1000) / 10);
 
-        
+
+        return `${minutes}:${seconds}:${milliseconds}`;
 
     }
     return (
