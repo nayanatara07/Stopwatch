@@ -1,6 +1,6 @@
 # Stopwatch App
 
-This Stopwatch App is a simple React application that allows users to measure elapsed time accurately. It includes features such as start, stop, and reset buttons.
+This [Stopwatch App](https://nayanatara07.github.io/stopwatch/) is a simple React application that allows users to measure elapsed time accurately. It includes features such as start, stop, and reset buttons.
 
 ## Features
 
