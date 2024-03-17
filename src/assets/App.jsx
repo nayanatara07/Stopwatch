@@ -5,15 +5,15 @@ function App() {
   return (
     <>
         <div>
-            <span style={{ fontWeight: 'bold' }}>Stopwatch 1: Task A</span>
+            <span style={{ fontWeight: 'bold' }}>Stopwatch 1: College Work</span>
             <Stopwatch />
         </div>
         <div>
-            <span style={{ fontWeight: 'bold' }}>Stopwatch 2: Task B</span>
+            <span style={{ fontWeight: 'bold' }}>Stopwatch 2: Router protocol and 0xCommit</span>
             <Stopwatch />
         </div>
         <div>
-            <span style={{ fontWeight: 'bold' }}>Stopwatch 3: Task C</span>
+            <span style={{ fontWeight: 'bold' }}>Stopwatch 3: Donatuz</span>
             <Stopwatch />
         </div>
     </>
