@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "homepage": "https://nayanatara07.github.io/stopwatch/"
+    "homepage": "https://nayanatara07.github.io/stopwatch"
   },
   "eslintConfig": {
     "extends": [
