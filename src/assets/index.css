@@ -63,25 +63,23 @@ body {
 }
 
 .stopwatch-container {
-    border: 2px solid #8e44ad; /* Purple border around the stopwatch container */
-    border-radius: 10px; /* Rounded corners */
-    padding: 15px; /* Add some padding inside the container */
-    margin-bottom: 30px; /* Add some space between each stopwatch container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    border: 2px solid #8e44ad; 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin-bottom: 30px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: rgba(0, 0, 0, 0.6); 
 }
 
-
-
 .stopwatch-label {
-    display: block; /* Make the label a block element */
+    display: block; 
     font-weight: bold;
-    margin-bottom: 10px; /* Add some space between the label and the stopwatch */
-    color: #2980b9; /* Blue color for the label */
+    margin-bottom: 10px; 
+    color: #2980b9; 
 }
 
 .label-highlight {
-    color: #e74c3c; /* Red color for the highlighted part of the label */
+    color: #e74c3c; 
 }
 
     
