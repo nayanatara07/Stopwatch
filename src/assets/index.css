@@ -56,3 +56,16 @@ body{
     background-color: hsl(205, 90%, 40%);
     }
     
+.stopwatch-container {
+        border: 2px solid #ccc; /* Border around the stopwatch container */
+        border-radius: 8px; /* Rounded corners */
+        padding: 10px; /* Add some padding inside the container */
+        margin-bottom: 20px; /* Add some space between each stopwatch container */
+    }
+    
+.stopwatch-label {
+        display: block; /* Make the label a block element */
+        font-weight: bold;
+        margin-bottom: 5px; /* Add some space between the label and the stopwatch */
+    }
+    
