@@ -5,19 +5,20 @@ function App() {
     return (
         <>
             <div className="stopwatch-container">
-                <span className="stopwatch-label">Stopwatch 1: College Work</span>
+                <span className="stopwatch-label">Stopwatch 1: <span className="label-highlight">College Work</span></span>
                 <Stopwatch />
             </div>
             <div className="stopwatch-container">
-                <span className="stopwatch-label">Stopwatch 2: Router protocol and 0xCommit</span>
+                <span className="stopwatch-label">Stopwatch 2: <span className="label-highlight">Router protocol and 0xCommit</span></span>
                 <Stopwatch />
             </div>
             <div className="stopwatch-container">
-                <span className="stopwatch-label">Stopwatch 3: Donatuz</span>
+                <span className="stopwatch-label">Stopwatch 3: <span className="label-highlight">Donatuz</span></span>
                 <Stopwatch />
             </div>
         </>
     );
+    
     
 
 }

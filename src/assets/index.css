@@ -1,11 +1,12 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     background: linear-gradient(to right, hsl(318, 20%, 51%), hsl(218, 70%, 61%));
-}    
+    color: #333; /* Default text color */
+}
 
-.stopwatch{
+.stopwatch {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,16 +16,16 @@ body{
     padding: 30px;
 }
 
-.display{
+.display {
     font-size: 5rem;
     font-family: ui-monospace;
     font-weight: bold;
-    color: hsl(0, 0%, 25%);
-    text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+    color: #333; /* Dark gray text color */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.75); /* Slight shadow for better contrast */
     margin-bottom: 25px;
 }
 
-.controls button{
+.controls button {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -36,36 +37,51 @@ body{
     color: white;
     transition: background-color 0.5s ease;
 }
- 
-.start-button{
+
+.start-button {
     background-color: hsl(115, 100%, 40%);
-    }
-.start-button:hover{
+}
+
+.start-button:hover {
     background-color: hsl(115, 100%, 30%);
-    }
-.stop-button{
+}
+
+.stop-button {
     background-color: hsl(10, 90%, 50%);
-    }
-.stop-button:hover{
+}
+
+.stop-button:hover {
     background-color: hsl(10, 90%, 40%);
-    }
-.reset-button{
+}
+
+.reset-button {
     background-color: hsl(205, 90%, 60%);
-    }
-.reset-button:hover{
+}
+
+.reset-button:hover {
     background-color: hsl(205, 90%, 40%);
-    }
-    
+}
+
 .stopwatch-container {
-        border: 2px solid #ccc; /* Border around the stopwatch container */
-        border-radius: 8px; /* Rounded corners */
-        padding: 10px; /* Add some padding inside the container */
-        margin-bottom: 20px; /* Add some space between each stopwatch container */
-    }
-    
+    border: 2px solid #8e44ad; /* Purple border around the stopwatch container */
+    border-radius: 10px; /* Rounded corners */
+    padding: 15px; /* Add some padding inside the container */
+    margin-bottom: 30px; /* Add some space between each stopwatch container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+}
+
+
+
 .stopwatch-label {
-        display: block; /* Make the label a block element */
-        font-weight: bold;
-        margin-bottom: 5px; /* Add some space between the label and the stopwatch */
-    }
+    display: block; /* Make the label a block element */
+    font-weight: bold;
+    margin-bottom: 10px; /* Add some space between the label and the stopwatch */
+    color: #2980b9; /* Blue color for the label */
+}
+
+.label-highlight {
+    color: #e74c3c; /* Red color for the highlighted part of the label */
+}
+
     
