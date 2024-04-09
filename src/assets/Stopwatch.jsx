@@ -1,14 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from 'emailjs-com';
 
-function Stopwatch(){
+function sendEmail(fromName, stopwatchNumber, elapsedTime, recipientEmail) {
+    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
+    const userId = process.env.REACT_APP_EMAILJS_USER_ID;
 
+    const emailParams = {
+        from_name: fromName,
+        to_name: 'Nayana Tara',
+        recipient_email: recipientEmail,
+        stopwatch_number: stopwatchNumber,
+        elapsed_time: elapsedTime,
+    };
+
+    emailjs.send(serviceId, templateId, emailParams, userId)
+        .then((response) => {
+            console.log('Email sent successfully:', response);
+        })
+        .catch((error) => {
+            console.error('Error sending email:', error);
+        });
+}
+
+function Stopwatch() {
     const [isRunning, setIsRunning] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0);
+    const [fromName, setFromName] = useState('');
     const intervalIdRef = useRef(null);
     const startTimeRef = useRef(0);
 
     useEffect(() => {
-
         if(isRunning){
             intervalIdRef.current = setInterval(() => {
                 setElapsedTime(Date.now() - startTimeRef.current);
@@ -21,7 +43,6 @@ function Stopwatch(){
         
     }, [isRunning]);
 
-    
     function start() {
         setIsRunning(true);
         startTimeRef.current = Date.now() - elapsedTime;    
@@ -37,7 +58,6 @@ function Stopwatch(){
     }
 
     function formatTime() {
-
         let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
         let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
         let seconds = Math.floor(elapsedTime / (1000) % 60);
@@ -49,19 +69,29 @@ function Stopwatch(){
         milliseconds = String(milliseconds).padStart(2, "0");
 
         return `${minutes}:${seconds}:${milliseconds}`;
-
     }
+
+    function handleEmailSend(stopwatchTimes) {
+        const recipientEmail = prompt('Enter your email address:');
+        const fromName = prompt('Enter your name:');
+        if (recipientEmail && fromName) {
+            sendEmail(fromName, stopwatchTimes, elapsedTime, recipientEmail);
+        }
+    }
+    
     return (
         <div className="stopwatch">
             <div className="display">{formatTime()}</div>
             <div className="controls">
                 <button onClick={start} className="start-button">Start</button>
                 <button onClick={stop} className="stop-button">Stop</button>
-                <button onClick={reset} className = "reset-button">Reset</button>
+                <button onClick={reset} className="reset-button">Reset</button>
+                <button onClick={() => handleEmailSend('Stopwatch 1', elapsedTime)} className="email-button">Email Time</button>
             </div>
-            
         </div>
     );
-
 }
-export default Stopwatch
+
+export default Stopwatch;
+
+
