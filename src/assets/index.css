@@ -85,9 +85,25 @@ body {
 }
 
 .email-button {
-    position: relative;
-    z-index: 1; /* Ensure the button is above other elements */
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    min-width: 130px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    background-color: hsl(40, 100%, 50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
+
+.email-button:hover {
+    background-color: hsl(40, 100%, 40%);
+}
+
+
 
 
     
