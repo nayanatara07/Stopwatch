@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import emailjs from 'emailjs-com';
-
 function sendEmail(fromName, stopwatchNumber, elapsedTime, recipientEmail) {
     const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
     const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
@@ -27,42 +26,55 @@ function Stopwatch() {
     const [isRunning, setIsRunning] = useState(false);
     const [elapsedTime, setElapsedTime] = useState(0);
     const [fromName, setFromName] = useState('');
+    const intervalIdRef = useRef(null);
+    const startTimeRef = useRef(0);
 
-    let timer;
+    useEffect(() => {
+        if(isRunning){
+            intervalIdRef.current = setInterval(() => {
+                setElapsedTime(Date.now() - startTimeRef.current);
+            }, 10);
+        }
+
+        return () => {
+            clearInterval(intervalIdRef.current);
+        }
+        
+    }, [isRunning]);
 
     function start() {
         setIsRunning(true);
-        timer = setInterval(() => {
-            setElapsedTime((prevElapsedTime) => prevElapsedTime + 1000);
-        }, 1000);
+        startTimeRef.current = Date.now() - elapsedTime;    
     }
     
     function stop() {
         setIsRunning(false);
-        clearInterval(timer);
     }
    
     function reset() {
         setElapsedTime(0);
         setIsRunning(false);    
-        clearInterval(timer);
     }
 
     function formatTime() {
+        let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
         let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-        let seconds = Math.floor(elapsedTime / 1000) % 60;
+        let seconds = Math.floor(elapsedTime / (1000) % 60);
+        let milliseconds = Math.floor((elapsedTime % 1000) / 10);
 
+        hours = String(hours).padStart(2, "0");
         minutes = String(minutes).padStart(2, "0");
         seconds = String(seconds).padStart(2, "0");
+        milliseconds = String(milliseconds).padStart(2, "0");
 
-        return `${minutes}:${seconds}`;
+        return `${minutes}:${seconds}:${milliseconds}`;
     }
 
     function handleEmailSend(stopwatchTimes) {
         const recipientEmail = prompt('Enter your email address:');
         const fromName = prompt('Enter your name:');
         if (recipientEmail && fromName) {
-            sendEmail(fromName, stopwatchTimes, formatTime(), recipientEmail);
+            sendEmail(fromName, stopwatchTimes, elapsedTime, recipientEmail);
         }
     }
     
@@ -73,35 +85,10 @@ function Stopwatch() {
                 <button onClick={start} className="start-button">Start</button>
                 <button onClick={stop} className="stop-button">Stop</button>
                 <button onClick={reset} className="reset-button">Reset</button>
-                <button onClick={() => handleEmailSend('Stopwatch')} className="email-button">Email Time</button>
+                <button onClick={() => handleEmailSend('Stopwatch', elapsedTime)} className="email-button">Email Time</button>
             </div>
         </div>
     );
 }
 
-function AudioPlayer() {
-    console.log("Rendering AudioPlayer component");
-    return (
-        <div className="audio-player" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: '9999' }}>
-            <audio controls>
-                <source src="/assets/Beloved.mp3" type="audio/mp3" />
-                Your browser does not support the audio element.
-            </audio>
-        </div>
-    );
-}
-
-export default function App() {
-    return (
-        <div className="App">
-            <Stopwatch />
-            <AudioPlayer />
-        </div>
-    );
-}
-
-
-
-
-
-
+export default Stopwatch;
