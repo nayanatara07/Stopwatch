@@ -2,7 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('stopwatch_img.jpg'); 
+    background-image: url('stopwatch_bkg.jpg'); 
     background-size: cover; 
     color: #333; 
 }
