@@ -80,10 +80,11 @@ function Stopwatch() {
 }
 
 function AudioPlayer() {
+    console.log("Rendering AudioPlayer component");
     return (
         <div className="audio-player" style={{ position: 'fixed', top: '20px', right: '20px', zIndex: '9999' }}>
             <audio controls>
-            <source src="./assets/Beloved.mp3" type="audio/mp3" />
+                <source src="/assets/Beloved.mp3" type="audio/mp3" />
                 Your browser does not support the audio element.
             </audio>
         </div>
