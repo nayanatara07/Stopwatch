@@ -70,13 +70,15 @@ function Stopwatch() {
         return `${minutes}:${seconds}:${milliseconds}`;
     }
 
-    function handleEmailSend(stopwatchTimes) {
+    function handleEmailSend(elapsedTime) {
         const recipientEmail = prompt('Enter your email address:');
         const fromName = prompt('Enter your name:');
-        if (recipientEmail && fromName) {
-            sendEmail(fromName, stopwatchTimes, elapsedTime, recipientEmail);
+        const stopwatchNumber = prompt('Enter the stopwatch number:');
+        if (recipientEmail && fromName && stopwatchNumber) {
+            sendEmail(fromName, stopwatchNumber, formatTime(elapsedTime), recipientEmail);
         }
     }
+    
     
     return (
         <div className="stopwatch">
@@ -85,7 +87,7 @@ function Stopwatch() {
                 <button onClick={start} className="start-button">Start</button>
                 <button onClick={stop} className="stop-button">Stop</button>
                 <button onClick={reset} className="reset-button">Reset</button>
-                <button onClick={() => handleEmailSend('Stopwatch', elapsedTime)} className="email-button">Email Time</button>
+                <button onClick={() => handleEmailSend(elapsedTime)} className="email-button">Email Time</button>
             </div>
         </div>
     );
