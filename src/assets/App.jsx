@@ -9,11 +9,11 @@ function App() {
                 <Stopwatch />
             </div>
             <div className="stopwatch-container">
-                <span className="stopwatch-label">Stopwatch 2: <span className="label-highlight">Router protocol and 0xCommit</span></span>
+                <span className="stopwatch-label">Stopwatch 2: <span className="label-highlight">Internship Work</span></span>
                 <Stopwatch />
             </div>
             <div className="stopwatch-container">
-                <span className="stopwatch-label">Stopwatch 3: <span className="label-highlight">Donatuz</span></span>
+                <span className="stopwatch-label">Stopwatch 3: <span className="label-highlight">Extra Work</span></span>
                 <Stopwatch />
             </div>
         </>
